@@ -2,15 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:npte_app/views/widgets/constants.dart';
 
 class CustomTexxtfield extends StatelessWidget {
-  const CustomTexxtfield({super.key});
-
+  const CustomTexxtfield({super.key, required this.hint, this.maxlines = 1});
+  final String hint;
+  final int maxlines;
   @override
   Widget build(BuildContext context) {
     return TextField(
       cursorColor: kPrimaryColor,
+      maxLines: maxlines,
       decoration: InputDecoration(
-        hintText: 'Title',
+        hintText: hint,
 
+        hintMaxLines: maxlines,
         border: buildBorder(),
         enabledBorder: buildBorder(),
         focusedBorder: buildBorder(kPrimaryColor),
